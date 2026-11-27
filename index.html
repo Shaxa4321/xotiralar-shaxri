@@ -45,7 +45,7 @@
       position: relative;
       width: 100%;
       max-width: 410px;
-      min-height: 650px;
+      min-height: 660px;
       background: var(--bg-card);
       border-radius: 32px;
       box-shadow: var(--shadow-soft), inset 0 1px 0 rgba(255, 255, 255, 0.7);
@@ -285,6 +285,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      gap: 8px;
     }
 
     .step-pill {
@@ -295,6 +296,18 @@
       font-size: 11px;
       font-weight: 600;
       color: var(--burgundy);
+    }
+
+    .back-link-btn {
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.78);
+      border: 1px solid var(--border-soft);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--text-main);
+      cursor: pointer;
     }
 
     .inner-card {
@@ -415,7 +428,6 @@
       box-shadow: 0 16px 34px rgba(42, 33, 35, 0.14);
     }
 
-    /* Polaroid old tomoni */
     .polaroid-front {
       background: #ffffff;
       padding: 12px 12px 44px 12px;
@@ -457,7 +469,6 @@
       gap: 6px;
     }
 
-    /* Polaroid orqa tomoni — Orzu va samimiy maktub */
     .polaroid-back {
       background: linear-gradient(165deg, #fbf8f4 0%, #f1e8df 100%);
       border: 1px solid rgba(150, 30, 62, 0.18);
@@ -507,15 +518,134 @@
       margin-bottom: 6px;
     }
 
-    .next-slot-box {
+    .next-slot-btn {
       width: 100%;
       padding: 12px 14px;
       border-radius: 16px;
-      background: rgba(255, 255, 255, 0.55);
-      border: 1px dashed rgba(150, 30, 62, 0.22);
+      background: rgba(255, 255, 255, 0.85);
+      border: 1px solid rgba(150, 30, 62, 0.25);
+      font-family: 'Plus Jakarta Sans', sans-serif;
       font-size: 12px;
-      color: var(--text-muted);
+      font-weight: 600;
+      color: var(--burgundy);
+      cursor: pointer;
       margin-bottom: 4px;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .next-slot-btn:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
+    }
+
+    /* 4-SAHIFA: 02 • IKKINCHI XOTIRA (AYLANADIGAN VIDEO KARTOCHKA) */
+    .video-flip-scene {
+      width: 100%;
+      max-width: 310px;
+      height: 416px;
+      perspective: 1100px;
+      margin: 6px auto;
+    }
+
+    .video-flip-card {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.75s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .video-flip-card.flipped {
+      transform: rotateY(180deg);
+    }
+
+    .video-frame-card {
+      width: 100%;
+      height: 100%;
+      background: #ffffff;
+      padding: 10px;
+      border-radius: 22px;
+      border: 1px solid rgba(42, 33, 35, 0.08);
+      box-shadow: 0 16px 34px rgba(42, 33, 35, 0.14);
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-box {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      border-radius: 15px;
+      overflow: hidden;
+      background: #1b1819;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+    }
+
+    .video-box video {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .video-back-face {
+      background: linear-gradient(165deg, #fbf8f4 0%, #f1e8df 100%);
+      border: 1px solid rgba(150, 30, 62, 0.18);
+      transform: rotateY(180deg);
+      padding: 16px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-between;
+      text-align: center;
+      gap: 8px;
+    }
+
+    .video-back-face .back-quote {
+      font-size: 14.5px;
+      line-height: 1.34;
+    }
+
+    .video-note {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 16.5px;
+      line-height: 1.38;
+      color: var(--text-main);
+      max-width: 315px;
+      margin: 2px auto;
+    }
+
+    .video-note-sub {
+      display: block;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-style: normal;
+      font-size: 13px;
+      margin-top: 4px;
+      letter-spacing: 0.06em;
+    }
+
+    .video-flip-btn {
+      width: 100%;
+      max-width: 265px;
+      padding: 11px 16px;
+      border-radius: 16px;
+      background: rgba(255, 255, 255, 0.88);
+      border: 1px solid rgba(150, 30, 62, 0.25);
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--burgundy);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.2s ease;
+    }
+
+    .video-flip-btn:hover {
+      background: #ffffff;
+      transform: translateY(-1px);
     }
 
     .floating-burst {
@@ -616,7 +746,6 @@
 
       <div class="flip-scene" id="flipScene" title="Kartochkani bosing">
         <div class="flip-card" id="flipCard">
-          <!-- Old tomoni -->
           <div class="flip-face polaroid-front">
             <div class="photo-box">
               <img src="xotira1.jpg" alt="Birinchi xotira" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';" />
@@ -634,7 +763,6 @@
             </div>
           </div>
 
-          <!-- Orqa tomoni -->
           <div class="flip-face polaroid-back">
             <span class="back-tag">23 • NOYABR • 2026</span>
             <p class="back-quote">
@@ -647,9 +775,46 @@
 
       <p class="flip-hint" id="flipHint">Rasm ustiga bosing — ichidagi maktubni oʻqing</p>
 
-      <div class="next-slot-box">
-        02 • Keyingi xotiramizni birga qoʻshamiz ✨
+      <button class="next-slot-btn" id="toVideoBtn">
+        02 • Ikkinchi xotira (Video) ni koʻrish ♥
+      </button>
+    </section>
+
+    <!-- 4-SAHIFA: 02 • IKKINCHI XOTIRA (AYLANADIGAN VIDEO KARTOCHKA) -->
+    <section id="page4" class="page hidden">
+      <div class="top-bar">
+        <span class="pill-badge" style="padding: 5px 12px; font-size: 9.5px;">02 • IKKINCHI XOTIRA</span>
+        <button class="back-link-btn" id="backToStep2Btn">← 1-xotira</button>
       </div>
+
+      <div class="video-flip-scene">
+        <div class="video-flip-card" id="videoFlipCard">
+          <!-- Video old tomoni -->
+          <div class="flip-face video-frame-card">
+            <div class="video-box" id="videoBox" title="Toʻxtatish yoki qoʻyish uchun bosing">
+              <video id="memoryVideo" src="xotira2.mp4" playsinline loop preload="metadata"></video>
+            </div>
+          </div>
+
+          <!-- Video orqa tomoni — Maktub -->
+          <div class="flip-face video-back-face">
+            <span class="back-tag">26 • NOYABR • 2026</span>
+            <p class="back-quote">
+              “Bugun birinchi marta uchrashuvga chiqdik — idealni boʻlmagan boʻlishi mumkin, lekin uzoq davom etadigan muhabbat yoʻlimizda kichik qadamimizni tashladik deb oʻylayman. Aytgancha, kemaga — yaʼni eng qoʻrqadigan narsamga bir gap bilan rozi qilgan yagona odam siz boʻldingiz 🫠. Yana tormozligim haqida ham aytib ketay, kelajakda oʻzgaradigan boʻlsam, bularni eslab birga kulamiz 😅. Bugun 1-chi marta ikkalamiz bir xil yangilikni ham sinab koʻrdik — pitsa yedik. Va bu sizga yoqmadi, lekin men endi eslab qoldim: sizga fast-foodlar va mayonezli ovqatlar yoqmaydi. Bugungi kunni menga eng yoqqan joyi — oʻzingiz haqingizda aytib berayotganingizda sizga hech qanaqa cheklovlarsiz xotirjam va uzoq vaqt qarab oʻtirishim boʻldi ❤️‍🔥. Imkoni boʻlganda edi, butun umr shunaqa holatda sizga qarab oʻtirishga ham rozi edim 😘”
+            </p>
+            <span class="back-sign">♥ SHOHJAHON</span>
+          </div>
+        </div>
+      </div>
+
+      <p class="video-note">
+        Men muxabbat haqidagi chiroyli ertakni eshitishni emas balki sen bilan haqiyqiysini yozishni xoxlayman
+        <span class="video-note-sub">😍 • ✍️ • ❤️‍🔥</span>
+      </p>
+
+      <button class="video-flip-btn" id="videoFlipBtn">
+        ↻ Orqasidagi maktubni oʻqish
+      </button>
     </section>
   </div>
 
@@ -665,7 +830,15 @@
     const page1 = document.getElementById('page1');
     const page2 = document.getElementById('page2');
     const page3 = document.getElementById('page3');
+    const page4 = document.getElementById('page4');
     const toStep2Btn = document.getElementById('toStep2Btn');
+    const toVideoBtn = document.getElementById('toVideoBtn');
+    const backToStep2Btn = document.getElementById('backToStep2Btn');
+
+    const memoryVideo = document.getElementById('memoryVideo');
+    const videoBox = document.getElementById('videoBox');
+    const videoFlipCard = document.getElementById('videoFlipCard');
+    const videoFlipBtn = document.getElementById('videoFlipBtn');
 
     const flipScene = document.getElementById('flipScene');
     const flipCard = document.getElementById('flipCard');
@@ -792,6 +965,7 @@
       page2.classList.add('fade-out');
       setTimeout(() => {
         page2.classList.add('hidden');
+        page2.classList.remove('fade-out');
         page3.classList.remove('hidden');
         spawnHearts(10);
       }, 380);
@@ -804,6 +978,51 @@
         ? 'Rasmga qaytish uchun kartochkani yana bosing'
         : 'Rasm ustiga bosing — ichidagi maktubni oʻqing';
       if (isFlipped) spawnHearts(8);
+    });
+
+    toVideoBtn.addEventListener('click', () => {
+      page3.classList.add('fade-out');
+      setTimeout(() => {
+        page3.classList.add('hidden');
+        page3.classList.remove('fade-out');
+        page4.classList.remove('hidden');
+        videoFlipCard.classList.remove('flipped');
+        videoFlipBtn.textContent = '↻ Orqasidagi maktubni oʻqish';
+        spawnHearts(10);
+        memoryVideo.play().catch(() => {});
+      }, 380);
+    });
+
+    videoBox.addEventListener('click', () => {
+      if (memoryVideo.paused) {
+        memoryVideo.play().catch(() => {});
+      } else {
+        memoryVideo.pause();
+      }
+    });
+
+    videoFlipBtn.addEventListener('click', () => {
+      videoFlipCard.classList.toggle('flipped');
+      const isFlipped = videoFlipCard.classList.contains('flipped');
+      if (isFlipped) {
+        memoryVideo.pause();
+        videoFlipBtn.textContent = '▶ Videoga qaytish';
+        spawnHearts(8);
+      } else {
+        videoFlipBtn.textContent = '↻ Orqasidagi maktubni oʻqish';
+        memoryVideo.play().catch(() => {});
+      }
+    });
+
+    backToStep2Btn.addEventListener('click', () => {
+      memoryVideo.pause();
+      videoFlipCard.classList.remove('flipped');
+      page4.classList.add('fade-out');
+      setTimeout(() => {
+        page4.classList.add('hidden');
+        page4.classList.remove('fade-out');
+        page3.classList.remove('hidden');
+      }, 380);
     });
   </script>
 </body>
